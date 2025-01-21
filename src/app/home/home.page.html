@@ -1,20 +1,39 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
+  <ion-title collapse="condense" style="font-size: 80px; border-bottom: 1px solid black; text-align: center;">
+    Lista de usuarios
+  </ion-title>
+
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <ion-list>
+    <ion-item>
+      <ion-input [formControl]="Nombre" label="Nombre:" placeholder="ingresa el nombre del usuario"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input [formControl]="Edad" label="Edad:" placeholder="ingresa la edad del usuario"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input [formControl]="correo" label="correo:" placeholder="ingresa tu correo"></ion-input>
+    </ion-item>
+  </ion-list>
+  <ion-button (click)="buttonclick()">Enviar</ion-button>
+  <div>
+    <h1 style="text-align: center;">Lista de usuarios</h1>
+    <ion-list>
+      <ion-item *ngFor="let task of tasks">
+        <ion-list>
+          <ion-item>
+            Nombre:{{ task.nombre }}
+          </ion-item>
+          <ion-item>
+            Correo:{{ task.correo }}
+          </ion-item>
+          <ion-item>
+            Edad:{{ task.edad}}
+          </ion-item>
+        </ion-list>
+      </ion-item>
+    </ion-list>
   </div>
 </ion-content>

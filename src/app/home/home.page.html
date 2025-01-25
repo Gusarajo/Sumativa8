@@ -17,23 +17,24 @@
       <ion-input [formControl]="correo" label="correo:" placeholder="ingresa tu correo"></ion-input>
     </ion-item>
   </ion-list>
-  <ion-button (click)="buttonclick()">Enviar</ion-button>
+  <ion-button id="buttonclick" (click)="buttonclick()">Enviar</ion-button>
   <div>
-    <h1 style="text-align: center;">Lista de usuarios</h1>
-    <ion-list>
-      <ion-item *ngFor="let task of tasks">
-        <ion-list>
-          <ion-item>
-            Nombre:{{ task.nombre }}
-          </ion-item>
-          <ion-item>
-            Correo:{{ task.correo }}
-          </ion-item>
-          <ion-item>
-            Edad:{{ task.edad}}
-          </ion-item>
-        </ion-list>
-      </ion-item>
-    </ion-list>
+    <h1 style="text-align: center;">Usuarios</h1>
+    <ion-grid>
+      <ion-row style="text-align: center;">
+        <ion-col>Nombre del Usuario</ion-col>
+        <ion-col>Correo del usuario</ion-col>
+        <ion-col> Edad del usuario</ion-col>
+        <ion-col> Borrar</ion-col>
+        <ion-col> Editar</ion-col>
+      </ion-row>
+      <ion-row *ngFor="let task of tasks let i = index" style="text-align: center;">
+        <ion-col>  {{ task.nombre }}</ion-col>
+        <ion-col> {{ task.correo }}</ion-col>
+        <ion-col> {{ task.edad}}</ion-col>
+        <ion-col><ion-button (click)="Editar(i)">Editar</ion-button></ion-col>
+        <ion-col><ion-button  (click)="borrar(i)">Borrar</ion-button></ion-col>
+      </ion-row>
+    </ion-grid>
   </div>
 </ion-content>

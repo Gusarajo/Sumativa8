@@ -27,8 +27,26 @@ export class HomePage {
       this.correo.setValue('');
       this.Edad.setValue('');
 
+    }else{
+      alert('Faltan datos');
     }
   }
-
-
+  borrar(tasks:any) {
+    this.tasks.splice(tasks, 1);
+  alert('Se elimino el usuario');
+  }
+  Editar(tasks:any){
+  const task = this.tasks[tasks];
+  const nNombre = prompt('Ingrese el nuevo nombre:');
+  const nCorreo = prompt('Ingrese el nuevo correo:');
+  const nEdad = prompt('Ingrese la nueva edad:');
+  if (nNombre !== null && nCorreo !== null && nEdad !== null) {
+    this.tasks[tasks] = {
+      nombre: nNombre,
+      correo: nCorreo,
+      edad: nEdad
+    };
+    alert('Usuario actualizado');
+  }
+}
 }
